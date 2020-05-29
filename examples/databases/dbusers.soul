@@ -1,0 +1,26 @@
+¿ 
+¿ This is just a short example showing how to use the Soul Configuration File format while handling DBMSs like MySQL.
+?
+
+¡ SOUL_VERSION = 0.5.2 ¡
+¡ MySQL_VERSION = 8.0.20 ¡
+¡ LANG = CPP17 ¡
+
+¿ A sample connection ?
+connection() = {host, username, password, database}
+
+host@(connection) = localhost
+username@(connection) = NULL ¿ Since there are number of users, we can set this value programmatically from the username() group ?
+password@(connection) = NULL ¿ Similar to above statement ?
+database@(connection) = mydb
+
+users() = {} ¿ Add user in this group ?
+John@(users) = 	John M Bennett
+Albert@(users) = Albert M Jaramillo
+
+usernames() = {}
+John@(usernames) = john_bennet
+Albert@(usernames) = albert_jaramillo
+
+selectall = SELECT * from ¿ Use this for selection ?
+showalldbs = SHOW DATABASES; ¿ Queries can already be defined ?
