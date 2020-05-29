@@ -7,7 +7,7 @@
 5. [**Implementing and Implementations**](IMPLEMENTATIONS.md)
 
 # License
-![Media-Type-Soul](https://github.com/Master-Console/Media-Type-Soul/blob/master/logo/soul.png?raw=true)
+![Media-Type-Soul](https://github.com/text-x-soul/text-x-soul/blob/master/logo/soul.png?raw=true)
 
 [![Public Domain](https://licensebuttons.net/p/mark/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0)
 
