@@ -1,5 +1,8 @@
 Windows-x64bit build of libsoul 0.5.2
+
+Binaries were compiled in GNU G++ 7.4.0
 Contains both shared and static build
+
 Packages available in: 
 -  libsoul-0.5.2.tar.gz
 -  libsoul-0.5.2.zip
