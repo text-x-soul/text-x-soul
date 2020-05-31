@@ -3,11 +3,10 @@
 Implementations done by people are in public domain and functioning may vary.
 
 Implementations exist for the following:
-- Qt C++(In progress)
-The reason Im doing it in Qt, is its easier to come up with a solution ASAP so that everyone can understand how it works and come up with different solutions, even far far better than mine.
+- Qt C++(Implemented, but not neat)
+- Native C/C++(Complete, data type recognitions need more focus.)
 
 Upcoming Implementations are for the following:
-- Native C/C++
 - Python
 
 Implementation requests:
