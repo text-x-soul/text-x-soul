@@ -1,12 +1,9 @@
 #include "QSoulStreamReader.h"
+#include "utils/custom.h"
 #include "QTextStream"
+#include <sstream>
 #include <QFileInfo>
 #include <QDebug>
-
-inline bool in_array(const QString &value, const std::vector<QString> &array)
-{
-    return std::find(array.begin(), array.end(), value) != array.end();
-}
 
 QSoulStreamReader::QSoulStreamReader(){
     m_SoulParser = new QSoulParser;
@@ -16,15 +13,9 @@ QSoulStreamReader::QSoulStreamReader(const QString &filename){
     setFileName(filename);
 }
 
-/* If you are thinking about why Im removing comments so many times, this is to be ensured there is no occurence while reading.
-* "Comments are removed at maximum while reading to not affect stream".
-*/
 void QSoulStreamReader::startStream(){
     m_SoulParser = new QSoulParser;
     QFile file(m_filename);
-    QFile varFile(m_filename);
-    QFile groupFile(m_filename);
-    QFile groupVarFile(m_filename);
 
     QFileInfo fi(m_filename);
     QString ext = fi.completeSuffix();
@@ -33,39 +24,41 @@ void QSoulStreamReader::startStream(){
         return;
     }
 
-    if(!file.open(QIODevice::ReadOnly | QFile::Text) or !varFile.open(QIODevice::ReadOnly | QFile::Text)
-            or !groupFile.open(QIODevice::ReadOnly | QFile::Text) or !groupVarFile.open(QIODevice::ReadOnly | QFile::Text)){
+    if(!file.open(QIODevice::ReadOnly | QFile::Text)){
         qDebug() << "SOUL: No Read Access";
     }
     else{
-        QTextStream info_in(&file);
-        QTextStream in(&varFile);
-        QTextStream group_in(&groupFile);
-        QTextStream group_varin(&groupVarFile);
+        QTextStream in(&file);
 
-        while(!info_in.atEnd()){
-            QString line = info_in.readLine().replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "");
+        QString Souldata = in.readAll();
+        file.close();
+        std::string souldata = Souldata.replace(m_SoulParser->commentMatch, "").remove("Â").toStdString();
+        std::istringstream lines( souldata );
+        std::istringstream varlines( souldata );
+        std::istringstream grouplines( souldata );
+        std::istringstream groupvarlines( souldata );
+
+        std::string Line;
+        QString line;
+        while(getline(lines, Line)){
+            line = QString::fromStdString(Line);
             QRegularExpressionMatch match = m_SoulParser->PrePro_List.match(line);
             if(match.hasMatch()){
                 QRegularExpressionMatch infoMatch = m_SoulParser->varMatch.match(match.captured(1));
                 if(infoMatch.hasMatch()){
-                    if(infoMatch.captured(2).contains("Â")){
-                        preprocessed_info.insert(infoMatch.captured(1), infoMatch.captured(2).replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed());
-                    }
-                    else{
-                        preprocessed_info.insert(infoMatch.captured(1), infoMatch.captured(2).trimmed());
-                    }
+                    preprocessed_info.insert(infoMatch.captured(1).trimmed(), infoMatch.captured(2).trimmed());
                 }
             }
         }
-        file.close();
 
-        while(!in.atEnd()){
-            QString line = in.readLine().replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "");
-            QRegularExpressionMatch infoMatch = m_SoulParser->PrePro_List.match(line);
-            QRegularExpressionMatch groupMatchness = m_SoulParser->groupMatch.match(line);
-            QRegularExpressionMatch groupVarMatchness = m_SoulParser->groupVarMatch.match(line);
-            QRegularExpressionMatch match = m_SoulParser->varMatch.match(line);
+        std::string varLine;
+        QString varline;
+        while(getline(varlines, varLine)){
+            varline = QString::fromStdString(varLine);
+            QRegularExpressionMatch infoMatch = m_SoulParser->PrePro_List.match(varline);
+            QRegularExpressionMatch groupMatchness = m_SoulParser->groupMatch.match(varline);
+            QRegularExpressionMatch groupVarMatchness = m_SoulParser->groupVarMatch.match(varline);
+            QRegularExpressionMatch match = m_SoulParser->varMatch.match(varline);
 
             if(infoMatch.hasMatch()){
                 continue;
@@ -77,46 +70,45 @@ void QSoulStreamReader::startStream(){
                 continue;
             }
             else if(match.hasMatch()){
-                varMap.insert(match.captured(1).trimmed(), match.captured(2).replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed());
+                varMap.insert(match.captured(1).trimmed(), match.captured(2).trimmed());
             }
         }
-        varFile.close();
 
-        while(!group_in.atEnd()){
-            QString line = group_in.readLine().replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "");
-            QRegularExpressionMatch groupMatchness = m_SoulParser->groupMatch.match(line);
+        std::string grpLine;
+        QString grpline;
+        while(getline(grouplines, grpLine)){
+            grpline = QString::fromStdString(grpLine);
+            QRegularExpressionMatch groupMatchness = m_SoulParser->groupMatch.match(grpline);
             if(groupMatchness.hasMatch()){
-                QString group_value = groupMatchness.captured(2).trimmed().remove("{").remove("}").replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed();
+                QString group_value = groupMatchness.captured(2).remove("{").remove("}").trimmed();
                 QStringList group_value_list = group_value.split(",");
                 group_value_list.replaceInStrings(QRegExp("^\\s+|\\s+$"), "");
-                group_value_list.replaceInStrings(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "");
-                group_value_list.replaceInStrings("Â", "");
-                group_value_list.replaceInStrings(QRegExp("^\\s+|\\s+$"), "");
-                groupMap.insert(groupMatchness.captured(1).replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed(), group_value_list);
+                groupMap.insert(groupMatchness.captured(1).remove("(").remove(")").trimmed(), group_value_list);
+
                 for(int i = 0; i < group_value_list.size(); i++){
                     QStringList groupIdentity;
                     groupIdentity.insert(0, group_value_list.value(i));
-                    groupIdentity.insert(1, groupMatchness.captured(1).trimmed().remove("(").remove(")").trimmed());
+                    groupIdentity.insert(1, groupMatchness.captured(1).remove("(").remove(")").trimmed());
                     groupVarMap.insert(groupIdentity, "NULL");
                 }
             }
         }
-        groupFile.close();
 
-        while(!group_varin.atEnd()){
-            QString line = group_varin.readLine().replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "");
-            QRegularExpressionMatch groupvar_matchness = m_SoulParser->groupVarMatch.match(line);
+        std::string grpvarLine;
+        QString grpvarline;
+        while(getline(groupvarlines, grpvarLine)){
+            grpvarline = QString::fromStdString(grpvarLine);
+            QRegularExpressionMatch groupvar_matchness = m_SoulParser->groupVarMatch.match(grpvarline);
             if(groupvar_matchness.hasMatch()){
-                QString group_var = groupvar_matchness.captured(1).trimmed().remove(" ").remove(QRegularExpression("(@\(.*\))"));
-                QString belongs_To = groupvar_matchness.captured(2).trimmed().remove(" ").remove("(").remove(")").replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed();
-                QString group_var_value = groupvar_matchness.captured(3).replace(QRegularExpression("(¿.*\?\\/)|(¿.*)"), "").remove("Â").trimmed();
+                QString group_var = groupvar_matchness.captured(1).remove(QRegularExpression("(@\\(.*\\))")).trimmed();
+                QString belongs_To = groupvar_matchness.captured(2).remove("(").remove(")").trimmed();
+                QString group_var_value = groupvar_matchness.captured(3).trimmed();
                 QStringList groupIdentity;
                 groupIdentity.insert(0, group_var);
                 groupIdentity.insert(1, belongs_To);
                 groupVarMap.insert(groupIdentity, group_var_value);
             }
         }
-        groupVarFile.close();
     }
 }
 
