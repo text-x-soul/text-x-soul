@@ -31,6 +31,7 @@ public:
     QRegularExpression varMatch = QRegularExpression("([^\\s]+)\\s*=\\s*(.*)");
     QRegularExpression groupMatch = QRegularExpression("([^\\s]+[()])\\s*=\\s*({.*})");
     QRegularExpression groupVarMatch = QRegularExpression("([^\\s]+@(.*))\\s*=\\s*(.*)");
+    QRegularExpression commentMatch = QRegularExpression("¿([\\S\\s]*?)\\?");
 
     QString group_notation = "@";
     QString containers[2] = {"(", ")"};
