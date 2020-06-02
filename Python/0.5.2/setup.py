@@ -8,7 +8,7 @@ setup(
   author = 'Yet-Zio',
   author_email = 'maheshdeluxe53@gmail.com',
   url = 'https://text-x-soul.tk',
-  download_url = 'https://github.com/user/reponame/archive/v_01.tar.gz',
+  download_url = 'https://github.com/text-x-soul/text-x-soul/raw/master/Python/0.5.2/PySoul-0.5.2.tar.gz',
   keywords = ['PUBLIC', 'SERIALIZATION', 'CONFIGURATION'],
   classifiers=[
     'Development Status :: 5 - Production/Stable',
