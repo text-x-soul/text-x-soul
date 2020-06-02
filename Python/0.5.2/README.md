@@ -8,7 +8,7 @@ PySoul provides the following features:
 
 # Changelog
 
-> 0.5.2 release 1
+> 0.5.2 : format 0.5.2
 - Added support for the latest format.
 - First implementation of the soul file format in Python
 
