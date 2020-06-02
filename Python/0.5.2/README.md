@@ -8,6 +8,10 @@ PySoul provides the following features:
 
 # Changelog
 
+> 0.5.3 : format 0.5.2
+
+- Fixed ModuleNotFoundErrors
+
 > 0.5.2 : format 0.5.2
 - Added support for the latest format.
 - First implementation of the soul file format in Python
