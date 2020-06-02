@@ -10,6 +10,10 @@ PySoul provides the following features:
 
 Changelog
 ===============
+> 0.5.5 : format 0.5.2
+
+- Fix typo error for SoulParser.TypeIdentifiers in SoulStreamReader
+
 > 0.5.4 : format 0.5.2
 
 - Convert README.md to README.rst
