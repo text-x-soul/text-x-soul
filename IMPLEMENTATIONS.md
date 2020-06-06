@@ -3,16 +3,17 @@
 Implementations done by people are in public domain and functioning may vary.
 
 Implementations exist for the following:
-- Qt C++(Implemented, but not neat)
-- Native C/C++(Complete, data type recognitions need more focus.)
-
-Upcoming Implementations are for the following:
+- Qt C++
+- Native C/C++
 - Python
+- Java
+
+Upcoming Implementations:
+- PHP
 
 Implementation requests:
 These are requests for implementing in the following languages/frameworks:
-- Java
-- PHP
+- Haxe
 - (Maybe others too)
 
 
