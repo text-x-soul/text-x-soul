@@ -1,6 +1,6 @@
 ¿ Variant of order.xml implementing serialization ?
 PurchaseOrder() = {ItemsOrders}
-ItemsOrders() = {Item}
+ItemsOrders() = {Item1, Item2}
 Item1() = {ItemID, ItemPrice}
 Item2() = {ItemID, ItemPrice}
 
