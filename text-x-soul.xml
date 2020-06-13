@@ -3,10 +3,10 @@
   <mime-type type="text/soul">
     <comment xml:lang="en">Soul Configuration File</comment>
     <glob pattern="*.soul" weight="50"/>
-	  <glob pattern="*.SOUL" weight="50"/>
-	  <glob pattern="*.sOUL" weight="50"/>
-	  <glob pattern="*.SoUL" weight="50"/>
-	  <glob pattern="*.SOuL" weight="50"/>
-	  <glob pattern="*.SOUl" weight="50"/>
+    <glob pattern="*.SOUL" weight="50"/>
+    <glob pattern="*.sOUL" weight="50"/>
+    <glob pattern="*.SoUL" weight="50"/>
+    <glob pattern="*.SOuL" weight="50"/>
+    <glob pattern="*.SOUl" weight="50"/>
   </mime-type>
 </mime-info>
