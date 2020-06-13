@@ -1,0 +1,13 @@
+<!-- Example taken from : https://docs.microsoft.com/en-us/dotnet/standard/serialization/examples-of-xml-serialization#:~:text=For%20example%2C%20you%20can%20serialize,XML%20Schema%20(XSD)%20document. -->
+<PurchaseOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ItemsOrders>
+        <Item>
+            <ItemID>aaa111</ItemID>
+            <ItemPrice>34.22</ItemPrice>
+        </Item>
+        <Item>
+            <ItemID>bbb222</ItemID>
+            <ItemPrice>2.89</ItemPrice>
+        </Item>
+    </ItemsOrders>
+</PurchaseOrder>
