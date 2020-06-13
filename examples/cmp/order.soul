@@ -1,0 +1,11 @@
+¿ Variant of order.xml implementing serialization ?
+PurchaseOrder() = {ItemsOrders}
+ItemsOrders() = {Item}
+Item1() = {ItemID, ItemPrice}
+Item2() = {ItemID, ItemPrice}
+
+ItemID@(Item1) = aaa111
+ItemPrice@(Item1) = 34.22
+
+ItemID@(Item2) = bbb222
+ItemPrice@(Item2) = 2.89
