@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<design>
+    <!-- Similar theme in XML -->
+    <editorbackcolor>#31363b</editorbackcolor>
+    <editortextcolor>#eff0f1</editortextcolor>
+    <editorbordercolor>#b9b9b9</editorbordercolor>
+    <linecolumnbackcolor>#484874</linecolumnbackcolor>
+    <linecolumntextcolor>#dfdfdf</linecolumntextcolor>
+    <linecolumnseparatorcolor>#b9b9b9</linecolumnseparatorcolor>
+    <activelinecolor>#3daee9</activelinecolor>
+    <intelliboxbackcolor>#fafafa</intelliboxbackcolor>
+    <intelliboxtextcolor>#333333</intelliboxtextcolor>
+    <intelliboxbordercolor>#b9b9b9</intelliboxbordercolor>
+    <intelliboxselectionbackcolor>#c0dcf3</intelliboxselectionbackcolor>
+    <intelliboxselectionbordercolor>#90c8f6</intelliboxselectionbordercolor>
+    <intelliboxpressbackcolor>#90c8f6</intelliboxpressbackcolor>
+    <intelliboxpressbordercolor>#60b0f9</intelliboxpressbordercolor>
+    <editorborder>1 1 1 1</editorborder> <!-- left, top, right, bottom -->
+    <intelliboxborder>1 1 1 1</intelliboxborder>
+    <linecolumnpadding>16 16</linecolumnpadding> <!-- left, right -->
+    <popupsize>400 300</popupsize> <!-- width, height -->
+    <haslinecolumn>true</haslinecolumn>
+    <showfocusrect>false</showfocusrect>
+    <firstlineone>true</firstlineone>
+</design>
