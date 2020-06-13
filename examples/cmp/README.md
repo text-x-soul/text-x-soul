@@ -94,7 +94,7 @@ Code is **contained** within **user-defined tags**, these cannot be **overriden 
 `example/cmp/order.soul`
 ```
 PurchaseOrder() = {ItemsOrders}
-ItemsOrders() = {Item}
+ItemsOrders() = {Item1, Item2}
 Item1() = {ItemID, ItemPrice}
 Item2() = {ItemID, ItemPrice}
 ItemID@(Item1) = aaa111
@@ -103,4 +103,4 @@ ItemID@(Item2) = bbb222
 ItemPrice@(Item2) = 2.89
 ```
 
-Code is **not contained**. Values can be overriden anytime, anywhere in the file. This code took about **8 lines of code** which has 213 characters, making up 213 bytes of data.
+Code is **not contained**. Values can be overriden anytime, anywhere in the file. This code took about **8 lines of code** which has 223 characters, making up 223 bytes of data.
