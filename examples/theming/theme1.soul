@@ -1,0 +1,30 @@
+¿ 
+¿ This is just a short example showing how to use the Soul Configuration File format for application themes.
+?
+
+¡ SOUL_VERSION = 0.5.2 ¡
+
+¿ 
+This was taken from one of our projects
+?
+editorbackcolor = #31363b
+editortextcolor = #eff0f1
+editorbordercolor = #b9b9b9
+linecolumnbackcolor = #484874
+linecolumntextcolor = #dfdfdf
+linecolumnseparatorcolor = #b9b9b9
+activelinecolor = #3daee9
+intelliboxbackcolor = #fafafa
+intelliboxtextcolor = #333333
+intelliboxbordercolor = #b9b9b9
+intelliboxselectionbackcolor = #c0dcf3
+intelliboxselectionbordercolor = #90c8f6
+intelliboxpressbackcolor = #90c8f6
+intelliboxpressbordercolor = #60b0f9
+editorborder = 1 1 1 1
+intelliboxborder = 1 1 1 1
+linecolumnpadding = 16 16
+popupsize = 400 300
+haslinecolumn = true
+showfocusrect = false
+firstlineone = true
