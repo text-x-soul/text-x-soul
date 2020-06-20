@@ -1,5 +1,5 @@
 # Comparison:
-### Please note that this file will be used for comparison of Soul and different formats regularly based on new formats and releases.
+### Please note that this file will be used for comparison of Soul and different formats regularly based on new formats and releases
 
 ## Between Soul and INI
 What we can gather from **INI** files are that the ***INI file format*** is an informal standard for configuration files of computing platforms and software. INI files are simple text files with a basic structure composed of sections, properties, and values.
@@ -11,7 +11,7 @@ The conclusion is that **Soul** and **INI** are functioning quite similar in ter
 
 But this could matter in larger files.
 
-- Ignoring comments and unwanted spaces.
+-  Ignoring comments and unwanted spaces.
 
 `examples/inifiles/example.ini`
 ```ini
@@ -77,7 +77,7 @@ In most of these cases **Soul** took less space.
 
 But this could matter in larger files.
 
-- Ignoring comments and unwanted spaces
+-  Ignoring comments and unwanted spaces
 
 `examples/theming/theme1.xml`
 ```xml
@@ -137,7 +137,7 @@ firstlineone = true
 It takes up **22 lines of code** if you could count which has 628 characters, making up 630 bytes of data.
 
 ## Comparing by serialization
-- Ignoring comments and unwanted spaces
+-  Ignoring comments and unwanted spaces
 
 `examples/cmp/order.xml`
 ```xml
