@@ -8,7 +8,7 @@ Currently supported extensions = .soul, .SOUL, .sOUL, .SoUL, .SOuL, .SOUl
 
 ##### Example:
 
-``` 
+```soul
 ¡ SOUL_VERSION = 0.5.2 ¡
 ¡ CPP_REVISION = 17 ¡ 
 ¡ COPYRIGHT = Copyright (C) 2020 Your Company ¡
@@ -19,20 +19,20 @@ These are some example data that can be frequently used with Soul Documents.
 #### Variables
 
 ***Variables***: are different types rather than being pre-processed data. They are stored in a different map such as a value or variable map. They may contain values such as:
-- SOUL_STRING : A string data.
-- NUMBER : A number, can be a integer or a decimal.
-- QUANTITY : not expressed directly, like can be a string but returns a object when in program.
+-  SOUL_STRING : A string data.
+-  NUMBER : A number, can be a integer or a decimal.
+-  QUANTITY : not expressed directly, like can be a string but returns a object when in program.
 
 ##### Advantages:
-- They can be declared anywhere in the file except in comments
-- Easily importable
-- Highly accessible
+-  They can be declared anywhere in the file except in comments
+-  Easily importable
+-  Highly accessible
 
 ##### Disadvantages
-- Variable values are trimmed, be it string or others, that is Whitespace is removed from start and end not between words or numbers. This may change on the coming standards.
+-  Variable values are trimmed, be it string or others, that is Whitespace is removed from start and end not between words or numbers. This may change on the coming standards.
 
 **Variables** must contain a **declaration operator('=')** which correspond to this format:
-- VARIABLE = VALUE
+-  VARIABLE = VALUE
 
 ##### Example:
 
