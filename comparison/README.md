@@ -1,20 +1,83 @@
 # Comparison:
-## Between Soul and XML
-
 ### Please note that this file will be used for comparison of Soul and different formats regularly based on new formats and releases.
 
-The conclusion is that both Soul and XML are not comparable and function in a different way, but similar cases like value declarations can be compared.
+## Between Soul and INI
+What we can gather from **INI** files are that the ***INI file format*** is an informal standard for configuration files of computing platforms and software. INI files are simple text files with a basic structure composed of sections, properties, and values.
 
-Soul still has a long way to become a widely-acceptable format.
+## Comparing by the number of lines
+`Note that this is not much of a good comparison, as many people **disagree** in comparing lines of code. Rather comparing with how they work is what matters.`
 
-In most of these cases Soul took less space.
+The conclusion is that **Soul** and **INI** are functioning quite similar in terms of keys. But in terms of sections or groups, **Soul** takes an overhead. In most of the examples, **Soul** and **INI** took the same number of lines but different number of bytes used for data.
+
+But this could matter in larger files.
+
+- Ignoring comments and unwanted spaces.
+
+`examples/inifiles/example.ini`
+```ini
+[owner]
+name=John Doe
+organization=Acme Widgets Inc.
+[database]
+server=192.0.2.62     
+port=143
+file="payroll.dat"
+```
+It takes up **7 lines of code**, having 114 characters, which makes up 114 bytes of data.
+
+`examples/inifiles/example.soul`
+```soul
+owner() = {name, organization}
+name@(owner) = John Doe
+organization@(owner) = Acme Widgets Inc.
+database() = {server, port, file}
+server@(database) = 192.0.2.62
+port@(database) = 143
+file@(database) = "payroll.dat"
+```
+It takes up **7 lines of code**, having 214 characters, which makes up 214 bytes of data.
+
+## Comparing by handling of data
+
+Let's take the previous examples:
+`examples/inifiles/example.ini`
+```ini
+[owner]
+name=John Doe
+organization=Acme Widgets Inc.
+[database]
+server=192.0.2.62     
+port=143
+file="payroll.dat"
+```
+The values are grouped as sections, similar to groups in Soul. However these groups are **parser-dependent**. They depend on values required by the keys. That is, A default specific value is required. Moreover, the same value cannot be overriden after the section declaration. However, INI requires less space for declaring these.
+
+`examples/inifiles/example.soul`
+```soul
+owner() = {name, organization}
+name@(owner) = John Doe
+organization@(owner) = Acme Widgets Inc.
+database() = {server, port, file}
+server@(database) = 192.0.2.62
+port@(database) = 143
+file@(database) = "payroll.dat"
+```
+In soul, the required group values are defined as parameters and later provided a value anywhere in the file. These are not **parser-dependent**. That is, A default specific value is not required by the parameters. Moreover, the same group variable-value or parameter value can be overriden anywhere in the file.
+
+## Between Soul and XML
+
+The conclusion is that both **Soul** and **XML** are not comparable and function in a different way, but similar cases like value declarations can be compared.
+
+**Soul** still has a long way to become a widely-acceptable format.
+
+In most of these cases **Soul** took less space.
 
 ## Comparing by the number of lines
 `Note that this is not much of a good comparison, as many people **disagree** in comparing lines of code. Rather comparing with how they work is what matters.`
 
 But this could matter in larger files.
 
-- Ignoring comments and spaces
+- Ignoring comments and unwanted spaces
 
 `examples/theming/theme1.xml`
 ```xml
@@ -46,7 +109,7 @@ But this could matter in larger files.
 It takes up **24 lines of code** if you could count which has 1187 characters, making up 1187 bytes of data.
 
 `examples/theming/theme1.soul`
-```
+```soul
 ¡ SOUL_VERSION = 0.5.2 ¡
 editorbackcolor = #31363b
 editortextcolor = #eff0f1
@@ -74,7 +137,7 @@ firstlineone = true
 It takes up **22 lines of code** if you could count which has 628 characters, making up 630 bytes of data.
 
 ## Comparing by serialization
-- Ignoring spaces and comments
+- Ignoring comments and unwanted spaces
 
 `examples/cmp/order.xml`
 ```xml
@@ -94,7 +157,7 @@ It takes up **22 lines of code** if you could count which has 628 characters, ma
 Code is **contained** within **user-defined tags**, these cannot be **overriden within that group**. This code took about **12 lines of code** which has 384 characters, making up 384 bytes of data.
 
 `example/cmp/order.soul`
-```
+```soul
 PurchaseOrder() = {ItemsOrders}
 ItemsOrders() = {Item1, Item2}
 Item1() = {ItemID, ItemPrice}
