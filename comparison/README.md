@@ -2,7 +2,7 @@
 ### Please note that this file will be used for comparison of Soul and different formats regularly based on new formats and releases
 
 ## Between Soul and INI
-What we can gather from **INI** files are that the ***INI file format*** is an informal standard for configuration files of computing platforms and software. INI files are simple text files with a basic structure composed of sections, properties, and values.
+What we can gather from **INI** files are that the ***INI file format*** is an informal standard for configuration files of computing platforms and software. **INI** files are simple text files with a basic structure composed of sections, properties, and values.
 
 ## Comparing by the number of lines
 `Note that this is not much of a good comparison, as many people **disagree** in comparing lines of code. Rather comparing with how they work is what matters.`
