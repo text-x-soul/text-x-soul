@@ -20,4 +20,4 @@ Maybe you will run upon critical or vulnerable data in your soul configuration f
 Hashing is a more better method of securing, suppose as the other user does not know the user content but only the hash.
 This can be done using a soul reader method.
 
-## END OF LINE FOR in-mind extensions...
+## END OF LINE FOR in-mind extensions
