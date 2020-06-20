@@ -1,7 +1,7 @@
 # Extend : 0.5.2
 These are notes on how to extend the current revision of the soul file format standard. Anyone is freely allowed to give his/her opinions and notes.
 
-## Current in-mind extensions...
+## Current in-mind extensions
 
 #### ***_DECLARE STATEMENT***
 The **_DECLARE**, a similar statement or word can be used to refer to reusable variables. Currently we don't have support for reusable variables but soon this will be implemented. A similar thing can be done with groups. Anyone can provide contributions.
