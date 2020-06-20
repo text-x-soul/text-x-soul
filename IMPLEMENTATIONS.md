@@ -3,18 +3,18 @@
 Implementations done by people are in public domain and functioning may vary.
 
 Implementations exist for the following:
-- Qt C++
-- Native C/C++
-- Python
-- Java
+-  Qt C++
+-  Native C/C++
+-  Python
+-  Java
 
 Upcoming Implementations:
-- PHP
+-  PHP
 
 Implementation requests:
 These are requests for implementing in the following languages/frameworks:
-- Haxe
-- (Maybe others too)
+-  Haxe
+-  (Maybe others too)
 
 
 ## IMPLEMENTING
