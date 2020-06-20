@@ -1,6 +1,8 @@
 # Comparison:
 ## Between Soul and XML
 
+### Please note that this file will be compared regularly based on new formats and releases.
+
 The conclusion is that both Soul and XML are not comparable and function in a different way, but similar cases like value declarations can be compared.
 
 Soul still has a long way to become a widely-acceptable format.
