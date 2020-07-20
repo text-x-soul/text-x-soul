@@ -1,4 +1,4 @@
-Windows-x64bit build of libsoul 0.5.2
+Windows-x64bit build of libsoul 0.5.2-r2
 
 Binaries were compiled in GNU G++ 7.4.0 on a Windows 10 x64bit OS
 Contains both shared and static build
