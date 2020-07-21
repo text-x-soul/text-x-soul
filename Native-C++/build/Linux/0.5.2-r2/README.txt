@@ -1,3 +1,4 @@
+IT IS NOT RECOMMENDED TO USE THIS RELEASE SINCE IT CONTAINS A FATAL BUG!
 Linux-x64bit build of libsoul 0.5.2-r2
 
 Binaries were compiled in GNU G++ unknown on a Ubuntu 18.04 x64bit OS
