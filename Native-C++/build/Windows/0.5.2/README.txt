@@ -1,3 +1,5 @@
+IT IS NOT RECOMMENDED TO USE THIS RELEASE SINCE IT CONTAINS A FATAL BUG!
+
 Windows-x64bit build of libsoul 0.5.2
 
 Binaries were compiled in GNU G++ 7.4.0 on a Windows 10 x64bit OS
