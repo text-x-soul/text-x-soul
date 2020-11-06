@@ -1,5 +1,5 @@
-There's only one implementation currently for Qt, this is the reason there's no other folder.
+Qt-C++ Implementations for handling Soul Documents.
+All files are in public-domain.
 
-This implementation is still in progress as it needs to identify quantities. You can contribute or modify it to suit your needs.
-The code is also quite messy, you can improve it
-However, you can try this in your project, there are no problems encountered thus far.
+Though Qt Implementations are in the state of archived and probably will not be developed for more since Native-C++ 
+implementation/implementations exist, newer releases/Implementations or proposes are always allowed.
